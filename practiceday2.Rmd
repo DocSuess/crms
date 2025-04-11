@@ -1,0 +1,35 @@
+---
+title: "practice.hpc.script"
+output: html_document
+date: "2025-04-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is my practice SLURM job script from HPC practice 1
+
+```{bash}
+#!/bin/bash
+#SBATCH --job-name=jamie
+#SBATCH --output=jamie.out
+#SBATCH --error=jamie.err
+#SBATCH --time=0-01:00:00
+#SBATCH --mail-user=suesser.j@northeastern.edu
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mail-type=ALL
+#SBATCH --mem=1G
+#SBATCH --cpus-per-task=1
+
+# Make a new directory
+mkdir /home/suesser.j/crms/day2_test
+
+# Navigate to that new directory
+cd /home/suesser/crms/day2_test
+
+# Print a messge in a new file to confirm that this job ran
+echo "hello" > day2_test.txt
+```
+
